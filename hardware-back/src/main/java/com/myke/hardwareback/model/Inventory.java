@@ -3,12 +3,14 @@ package com.myke.hardwareback.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.UUID;
+
 @Document(collection = "inventory")
 public class Inventory {
 
     //ATTRIBUTES
     @Id
-    private String id;
+    private String id = UUID.randomUUID().toString().substring(0,10);
     private String product;
     private Double price;
     private String section;

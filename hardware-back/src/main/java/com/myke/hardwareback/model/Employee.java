@@ -3,12 +3,14 @@ package com.myke.hardwareback.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.UUID;
+
 @Document(collection = "employee")
 public class Employee {
 
     //ATTRIBUTES
     @Id
-    private String id;
+    private String id = UUID.randomUUID().toString().substring(0,10);
     private String name;
     private String username;
     private String email;

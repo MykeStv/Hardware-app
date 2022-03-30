@@ -6,14 +6,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.UUID;
 
 @Document(collection = "invoice")
 public class Invoice {
 
     //ATTRIBUTES
     @Id
-    private String id;
-    private LocalDate date;
+    private String id = UUID.randomUUID().toString().substring(0,10);
+    private LocalDate date = LocalDate.now();
     //private LocalTime hour;
     private String employee;
     private Client client;
