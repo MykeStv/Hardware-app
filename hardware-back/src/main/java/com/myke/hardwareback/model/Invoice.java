@@ -18,8 +18,20 @@ public class Invoice {
     //private LocalTime hour;
     private String employee;
     private Client client;
-    private List<String> products;
+    private List<ProductDTO> products;
     private Double total;
+
+    //CONSTRUCTOR
+
+
+    /*public Invoice(String employee, Client client, List<ProductDTO> products) {
+        this.id = UUID.randomUUID().toString().substring(0,10);
+        this.date = LocalDate.now();
+        this.employee = employee;
+        this.client = client;
+        this.products = products;
+        //this.total = products.;
+    }*/
 
     //GETTER && SETTER
     public String getId() {
@@ -54,11 +66,11 @@ public class Invoice {
         this.client = client;
     }
 
-    public List<String> getProducts() {
+    public List<ProductDTO> getProducts() {
         return products;
     }
 
-    public void setProducts(List<String> products) {
+    public void setProducts(List<ProductDTO> products) {
         this.products = products;
     }
 
