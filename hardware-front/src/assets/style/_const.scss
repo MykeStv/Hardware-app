@@ -1,0 +1,29 @@
+// -- colors
+$color-backgroud-sidebar: #131B21;
+$color-backgroud-dark1: #192229;
+$color-backgroud-dark2: #182027;
+$color-backgroud-dark3: #141D23;
+$color-backgroud-footer: #0B1319;
+$color-gray:#BAC0C5;
+
+
+$color-fuxia: #E21945;
+$color-fuxia2: #583040;
+$color-fuxia3: #381B27;
+
+
+$color-green: #7B9723;
+
+$color-text-light: #fff;
+
+// -- MINXIN
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-left {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}

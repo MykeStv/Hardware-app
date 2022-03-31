@@ -4,9 +4,11 @@ import com.myke.hardwareback.model.Inventory;
 import com.myke.hardwareback.repository.InventoryRepository;
 import com.myke.hardwareback.service.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+@Service
 public class InventoryServiceImpl implements InventoryService {
 
     @Autowired
@@ -45,5 +47,25 @@ public class InventoryServiceImpl implements InventoryService {
     @Override
     public Mono<Void> deleteProduct(String id) {
         return this.inventoryRepository.deleteById(id);
+    }
+
+    @Override
+    public Mono<Inventory> increaseStock(String id, Integer quantity) {
+        return this.inventoryRepository.findById(id)
+                .flatMap(product -> {
+                    product.setStock(product.getStock() + quantity);
+                    return saveProduct(product);
+                })
+                .switchIfEmpty(Mono.empty());
+    }
+
+    @Override
+    public Mono<Inventory> sellProduct(String id, Integer quantity) {
+        return this.inventoryRepository.findById(id)
+                .flatMap(product -> {
+                    product.setStock(product.getStock() - quantity);
+                    return saveProduct(product);
+                })
+                .switchIfEmpty(Mono.empty());
     }
 }

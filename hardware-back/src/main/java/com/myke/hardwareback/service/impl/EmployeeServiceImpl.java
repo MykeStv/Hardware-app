@@ -4,9 +4,11 @@ import com.myke.hardwareback.model.Employee;
 import com.myke.hardwareback.repository.EmployeeRepository;
 import com.myke.hardwareback.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+@Service
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired

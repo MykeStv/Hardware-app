@@ -18,6 +18,9 @@ public interface InventoryService {
 
     Mono<Void> deleteProduct(String id);
 
+    Mono<Inventory> increaseStock(String id, Integer quantity);
+
+    Mono<Inventory> sellProduct(String id, Integer quantity);
 
 
 }

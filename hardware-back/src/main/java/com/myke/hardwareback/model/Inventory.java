@@ -11,7 +11,7 @@ public class Inventory {
     //ATTRIBUTES
     @Id
     private String id = UUID.randomUUID().toString().substring(0,10);
-    private String product;
+    private String productName;
     private Double price;
     private String section;
     private Integer stock;
@@ -26,12 +26,12 @@ public class Inventory {
         this.id = id;
     }
 
-    public String getProduct() {
-        return product;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setProduct(String product) {
-        this.product = product;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public Double getPrice() {
