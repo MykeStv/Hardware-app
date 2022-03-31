@@ -1,0 +1,35 @@
+
+.search {
+    @include flex-column;
+    align-items: center;
+    row-gap: .5rem;
+    padding: 1rem;
+    
+    
+
+    .text {
+        font-size: 1.3rem;
+        color: $color-gray;
+        font-weight: 500;
+    }
+
+    .input {
+        background: transparent;
+        color: $color-gray2;
+        width: 12rem;
+        text-align: center;
+        font-size: .975rem;
+        padding: .5rem 0.75rem;
+        border: 1px solid $color-gray2;
+        border-radius: 0.4rem;
+        outline: none;
+        transition: .45s;
+
+        &:hover, &:focus {
+            border-color: $color-fuxia;
+            width: 80%;
+            color: $color-gray;
+        }
+    }
+
+}

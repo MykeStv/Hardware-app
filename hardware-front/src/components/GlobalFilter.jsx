@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useAsyncDebounce } from 'react-table'
+import { BiSearch } from "react-icons/bi";
+
 
 const GlobalFilter = ({ preGlobalFilteredRows, globalFilter, setGlobalFilter }) => {
 
@@ -12,8 +14,9 @@ const GlobalFilter = ({ preGlobalFilteredRows, globalFilter, setGlobalFilter }) 
 
     return (
         <div className='search'>
-            <span className='text'>Search: </span>
+            <span className='text'>Search</span>
             <input
+
                 className='input'
                 type="text"
                 value={value || ''}

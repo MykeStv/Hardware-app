@@ -1,4 +1,4 @@
-@import 'const', 'footer', 'sidebar', 'dashboard', 'table';
+@import 'const', 'footer', 'sidebar', 'dashboard', 'table', 'search';
 
 * {
     box-sizing: border-box;
@@ -10,3 +10,8 @@ ul {
     list-style: none;
 }
 
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
