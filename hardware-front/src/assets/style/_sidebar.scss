@@ -5,18 +5,18 @@
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
+    height: calc(100% - $height-footer);
     width: $width-sidebar;
     padding-left: 1.5rem;
     
     .elements {
         @include flex-column;
-        height: 90%;
+        height: calc(100% - $height-footer);
         justify-content: space-between;
         
         .list {
             @include flex-column;
-            margin-top: 4rem;
+            margin-top: 5rem;
         }
 
         .item {
