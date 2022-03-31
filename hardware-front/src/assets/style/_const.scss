@@ -16,6 +16,9 @@ $color-green: #7B9723;
 
 $color-text-light: #fff;
 
+// -- space
+$width-sidebar: 12rem;
+
 // -- MINXIN
 @mixin flex-column {
     display: flex;
@@ -25,5 +28,11 @@ $color-text-light: #fff;
 @mixin flex-left {
     display: flex;
     justify-content: left;
+    align-items: center;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
     align-items: center;
 }

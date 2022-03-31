@@ -1,0 +1,6 @@
+
+.dashboard {
+    position: relative;
+    left: $width-sidebar;
+    width: calc(100% - $width-sidebar);
+}
