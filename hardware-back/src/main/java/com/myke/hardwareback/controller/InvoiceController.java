@@ -22,15 +22,24 @@ public class InvoiceController {
         return this.invoiceService.getInvoices();
     }
 
+    @GetMapping(path = "/invoice/{id}")
+    private Mono<Invoice> getInvoiceById(@PathVariable("id") String id) {
+        return this.invoiceService.getInvoiceById(id);
+    }
+
     @PostMapping(path = "/invoice")
     @ResponseStatus(HttpStatus.CREATED)
     private Mono<Invoice> saveInvoice(@RequestBody Invoice invoice) {
 
-        /*invoice.getProducts().stream()
-                .map(p -> p.setTotalProduct(0.0))
-                .findAny();*/
+        invoice.getProducts().stream()
+                .forEach(p ->  invoice.setTotal(invoice.getTotal() + p.getTotalProduct()));
 
         return this.invoiceService.saveInvoice(invoice);
+    }
+
+    @DeleteMapping(path = "/invoice/{id}/delete")
+    private Mono<Void> deleteInvoice(@PathVariable("id") String id) {
+        return this.invoiceService.deleteInvoice(id);
     }
 
 }

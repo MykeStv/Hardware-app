@@ -19,11 +19,9 @@ public class Invoice {
     private String employee;
     private Client client;
     private List<ProductDTO> products;
-    private Double total;
+    private Double total = 0.0;
 
     //CONSTRUCTOR
-
-
     /*public Invoice(String employee, Client client, List<ProductDTO> products) {
         this.id = UUID.randomUUID().toString().substring(0,10);
         this.date = LocalDate.now();
