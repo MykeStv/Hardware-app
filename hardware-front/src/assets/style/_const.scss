@@ -5,6 +5,7 @@ $color-backgroud-dark2: #182027;
 $color-backgroud-dark3: #141D23;
 $color-backgroud-footer: #0B1319;
 $color-gray:#BAC0C5;
+$color-gray2:#7C8791;
 
 
 $color-fuxia: #E21945;
@@ -18,6 +19,9 @@ $color-text-light: #fff;
 
 // -- space
 $width-sidebar: 12rem;
+
+// -- index
+$index-1 : 100;
 
 // -- MINXIN
 @mixin flex-column {
@@ -34,5 +38,11 @@ $width-sidebar: 12rem;
 @mixin flex-center {
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-space-between {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }

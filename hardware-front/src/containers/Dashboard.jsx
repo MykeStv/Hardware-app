@@ -21,7 +21,35 @@ const Dashboard = () => {
     const columns = useMemo(() => COLUMNS, [])
     const data = useMemo(() => inventory, [inventory])
 
-    console.log(data);
+    // console.log(data);
+
+    const addCart = (value) => {
+        console.log(value);
+    }
+
+    //add a column with a button
+    const tableHooks = (hooks) => {
+        hooks.visibleColumns.push((columns) => [
+            ...columns,
+            {
+                id: 'addCart',
+                Header: 'Agregar Producto',
+                Cell: ({ row }) => (
+                    <button onClick={() => addCart(row.values)}>
+                        Agregar
+                    </button>
+                )
+            }
+        ])
+    }
+
+    const tableInstance = useTable(
+        {
+            columns,
+            data
+        },
+        tableHooks
+    )
 
     const {
         getTableProps,
@@ -29,10 +57,7 @@ const Dashboard = () => {
         headerGroups,
         rows,
         prepareRow
-    } = useTable({
-        columns,
-        data
-    })
+    } = tableInstance;
 
     return (
         <div className='dashboard'>

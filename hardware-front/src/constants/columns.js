@@ -19,9 +19,9 @@ export const COLUMNS = [
         Header: 'Stock',
         accessor: 'stock'
     },
-    {
+    /* {
         Header: 'Descripción',
         accessor: 'description'
-    }
+    } */
 ]
 

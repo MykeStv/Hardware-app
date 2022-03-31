@@ -3,6 +3,7 @@ import './assets/style/style.scss'
 import Dashboard from "./containers/Dashboard";
 import { Provider } from "react-redux";
 import { store } from "./state/store";
+import Footer from "./components/Footer";
 
 export * as actionCreators from './actions/index'
 
@@ -11,6 +12,7 @@ function App() {
     <div className="App">
       <Provider store={store}>
 
+        <Footer />
         <Sidebar />
         <Dashboard />
 
