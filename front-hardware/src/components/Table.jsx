@@ -29,7 +29,7 @@ const Table = ({ columns, data }) => {
             ...columns,
             {
                 id: 'addCart',
-                Header: 'Agregar Producto',
+                Header: 'Acción',
                 Cell: ({ row }) => (
                     <button onClick={() => addCart(row.values)}>
                         Agregar

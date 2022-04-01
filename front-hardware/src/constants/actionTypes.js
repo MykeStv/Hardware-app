@@ -10,4 +10,6 @@ export const actionTypes = {
     INC_QUANTITY: 'inc-quantity',
     DEC_QUANTITY: 'dec-quantity',
     MOD_QUANTITY: 'mod-quantity',
+
+    GENERATE_INVOICE: 'generate-invoice',
 }

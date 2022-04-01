@@ -3,14 +3,14 @@ package com.myke.hardwareback.model;
 public class ProductDTO {
 
     //ATTRIBUTES
-    private String product;
+    private String productName;
     private Double price;
     private Integer quantity;
     private Double totalProduct;
 
     //CONSTRUCTOR
-    public ProductDTO(String product, Double price, Integer quantity) {
-        this.product = product;
+    public ProductDTO(String productName, Double price, Integer quantity) {
+        this.productName = productName;
         this.price = price;
         this.quantity = quantity;
         this.totalProduct = price * quantity;
@@ -33,12 +33,12 @@ public class ProductDTO {
         this.quantity = quantity;
     }
 
-    public String getProduct() {
-        return product;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setProduct(String product) {
-        this.product = product;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public Double getTotalProduct() {

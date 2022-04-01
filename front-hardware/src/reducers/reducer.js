@@ -76,3 +76,14 @@ export const sellReducer = (state = initialState, action) => {
     }
 
 }
+
+export const invoiceReducer = (state, action) => {
+    switch (action.type) {
+        case actionTypes.GENERATE_INVOICE:
+            return ''
+        
+
+        default:
+            return state;
+    }
+}

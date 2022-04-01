@@ -62,3 +62,16 @@ $index-2 : 10;
     justify-content: space-between;
     flex-direction: column;
 }
+
+@mixin input-style {
+    background: transparent;
+    outline: none;
+}
+
+@mixin fuxia-neon-hover-focus {
+    
+    &:hover, &:focus {
+        border-color: $color-fuxia;
+        box-shadow: 0 0 10px $color-fuxia5;
+    }
+}

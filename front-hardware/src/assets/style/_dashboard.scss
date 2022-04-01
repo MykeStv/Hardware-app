@@ -9,6 +9,7 @@
     width: calc(100% - $width-sidebar);
     min-height: calc(100vh - $height-footer); //for look later, in case of error
     display: flex;
-    
     justify-content: center;
+
+    // overflow: scroll;
 }

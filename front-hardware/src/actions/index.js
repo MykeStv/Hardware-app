@@ -1,52 +1,71 @@
 import { actionTypes } from "../constants/actionTypes";
 
-const url = "http://localhost:8080/hardware/inventory"
+const url = "http://localhost:8080/hardware"
 
-export const getInventory = () => async(dispath) => {
+export const getInventory = () => async(dispatch) => {
 
-    return fetch(url, {
+    return fetch(`${url}/inventory`, {
         method: 'GET',
         headers: {'Content-Type': 'application/json'}
     })
     .then(res => res.json())
     .then(res => {
         // console.log(res)
-        dispath({ type: actionTypes.GET_INVENTORY, payload: res })
+        dispatch({ type: actionTypes.GET_INVENTORY, payload: res })
     })
 
 }
 
 // SELL STATE
-export const addSellItem = (value) => (dispath) => {
+export const addSellItem = (value) => (dispatch) => {
 
     return (
-        dispath({ type: actionTypes.ADD_SELLSTATE, payload: {...value, quantity: 1} })
+        dispatch({ type: actionTypes.ADD_SELLSTATE, payload: {...value, quantity: 1} })
     )
 
 }
 
-export const deleteSellItem = (id) => (dispath) => {
+export const deleteSellItem = (id) => (dispatch) => {
 
     return (
-        dispath({ type: actionTypes.DELETE_SELLSTATE, payload: {id: id} })
+        dispatch({ type: actionTypes.DELETE_SELLSTATE, payload: {id: id} })
     )
 
 }
 
 
 // QUANTITY ITEM IN SELL STATE
-export const increaseQuantity = (id) => (dispath) => {
+export const increaseQuantity = (id) => (dispatch) => {
     
     return (
-        dispath({ type: actionTypes.INC_QUANTITY, payload: {id: id} })
+        dispatch({ type: actionTypes.INC_QUANTITY, payload: {id: id} })
     )
 
 }
 
-export const decreaseQuantity = (id) => (dispath) => {
+export const decreaseQuantity = (id) => (dispatch) => {
     
     return (
-        dispath({ type: actionTypes.DEC_QUANTITY, payload: {id: id} })
+        dispatch({ type: actionTypes.DEC_QUANTITY, payload: {id: id} })
     )
+
+}
+
+export const generateInvoice = (data) => (dispatch) => {
+
+    return fetch(`${url}/invoice`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(res => res.json())
+        // .then(res => dispatch({ type: actionTypes.GENERATE_INVOICE, payload: res }))
+        .then(res =>console.log(res))
+
+    /* return (
+        dispatch({ type: actionTypes.GENERATE_INVOICE, payload: data })
+    ) */
 
 }

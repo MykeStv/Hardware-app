@@ -23,9 +23,9 @@
             text-align: center;
             background: $color-green;
             color: #fff;
-            font-size: .91rem;
-            width: 22px;
-            height: 22px;
+            font-size: .85rem;
+            width: 21px;
+            height: 21px;
             border-radius: 10%;            
         }
     }
@@ -106,8 +106,25 @@
 
             &:hover {
                 background: $color-fuxia;
-                box-shadow: 0 0 12px  $color-fuxia, 0 0 15px  $color-fuxia;
+                box-shadow: 0 0 12px  $color-fuxia5, 0 0 15px  $color-fuxia5;
             }
         }
     }
+
+    .input_client {
+        margin-bottom: 0.25rem;
+
+        input {
+            @include input-style;
+            padding: 0.15rem 0.5rem;
+            border: 1px solid $color-gray2;
+            border-radius: .25rem;
+            color: $color-gray;
+            margin-bottom: .15rem;
+            @include fuxia-neon-hover-focus;
+            
+
+        }
+    }
+
 }
