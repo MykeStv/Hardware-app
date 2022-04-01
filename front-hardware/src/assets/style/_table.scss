@@ -55,7 +55,8 @@ table {
             transition: 0.25s;
 
             &:hover {
-                box-shadow: 0 0 12px  $color-green;
+                background: $color-green2;
+                box-shadow: 0 0 12px  $color-green, 0 0 15px  $color-green;
 
             }
         }

@@ -34,11 +34,19 @@ export const deleteSellItem = (id) => (dispath) => {
 }
 
 
-// QUANTITY
-export const increaseQuantity = () => (dispath) => {
+// QUANTITY ITEM IN SELL STATE
+export const increaseQuantity = (id) => (dispath) => {
     
     return (
-        dispath({ type: actionTypes.INC_QUANTITY })
+        dispath({ type: actionTypes.INC_QUANTITY, payload: {id: id} })
+    )
+
+}
+
+export const decreaseQuantity = (id) => (dispath) => {
+    
+    return (
+        dispath({ type: actionTypes.DEC_QUANTITY, payload: {id: id} })
     )
 
 }

@@ -36,8 +36,33 @@ export const sellReducer = (state = initialState, action) => {
                 return state
             }
             
+        case actionTypes.INC_QUANTITY:
+            const incItem = state.products.map(item => {
+                if(item.id === action.payload.id) {
+                    item.quantity++
+                    return item
+                } else {
+                    return item
+                }
+            })
 
-            
+            return {
+                ...state, products: incItem
+            }
+        
+        case actionTypes.DEC_QUANTITY:      
+
+            return {
+                ...state, products: state.products.map(item => {
+                    if(item.id === action.payload.id) {
+                        item.quantity--
+                        return item
+                    } else {
+                        return item
+                    }
+                })
+            } 
+        
         
         case actionTypes.DELETE_SELLSTATE:
             // console.log(action.payload.id)

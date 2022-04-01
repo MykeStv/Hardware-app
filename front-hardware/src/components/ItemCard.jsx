@@ -4,25 +4,27 @@ import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../App';
 
-const ItemCard = ({ id, name, price, stock }) => {
+const ItemCard = ({ id, name, price, stock, quantity }) => {
 
-    const [quantity, setQuantity] = useState(1)
+    // const [quantity, setQuantity] = useState(1)
     const [priceItem, setPriceItem] = useState(price)
     const dispatch = useDispatch()
 
-    const { deleteSellItem } = bindActionCreators(actionCreators, dispatch)
+    const { deleteSellItem, increaseQuantity, decreaseQuantity } = bindActionCreators(actionCreators, dispatch)
 
     const incQuantity = () => {
         if (stock > quantity) {
-            setQuantity(prevQuantity => prevQuantity + 1)
+            // setQuantity(prevQuantity => prevQuantity + 1)
             setPriceItem(prevPrice => prevPrice + price)
+            increaseQuantity(id)
         }
     }
 
     const decQuantity = () => {
         if (quantity > 1) {
-            setQuantity(prevQuantity => prevQuantity - 1)
+            // setQuantity(prevQuantity => prevQuantity - 1)
             setPriceItem(prevPrice => prevPrice - price)
+            decreaseQuantity(id)
         }
     }
 

@@ -6,7 +6,10 @@ const SellState = () => {
 
     const products = useSelector((state) => state.sell.products)
 
-    console.log(products);
+    let total = 0;
+    products.forEach(element => {
+        total += element.price * element.quantity
+    });
 
     return (
         <div className='sellstate'>
@@ -18,7 +21,7 @@ const SellState = () => {
                 </div>
             </div>
             <div className="body">
-                Products:
+                <span>Products</span>
                 {
                     products.map(item => (
                         <ItemCard
@@ -27,15 +30,16 @@ const SellState = () => {
                             name={item.productName}
                             price={item.price}
                             stock={item.stock}
+                            quantity={item.quantity}
                         />
                     ))
                 }
             </div>
-            <div className='footer'>
-                <p>Total: { }</p>
-                <button className='generate'>Generar Factura</button>
+            <div className='footer_sell'>
+                <p className='total_sell'>Total: <span>${total}</span></p>
+                <button className='btn_generate'>Generar Factura</button>
             </div>
-        </div>
+        </div >
     )
 }
 
