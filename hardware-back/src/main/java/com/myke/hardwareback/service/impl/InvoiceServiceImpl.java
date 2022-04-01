@@ -1,6 +1,7 @@
 package com.myke.hardwareback.service.impl;
 
 import com.myke.hardwareback.model.Invoice;
+import com.myke.hardwareback.repository.InventoryRepository;
 import com.myke.hardwareback.repository.InvoiceRepository;
 import com.myke.hardwareback.service.InvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ public class InvoiceServiceImpl implements InvoiceService {
 
     @Autowired
     private InvoiceRepository invoiceRepository;
+
 
     @Override
     public Flux<Invoice> getInvoices() {

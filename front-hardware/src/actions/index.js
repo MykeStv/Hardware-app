@@ -16,6 +16,21 @@ export const getInventory = () => async(dispatch) => {
 
 }
 
+export const sellProduct = (products) => async(dispatch) => {
+    
+    products.forEach(product => {
+        fetch(`${url}/inventory/${product.id}/sell/${product.quantity}`, {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'}
+        })
+        .then(res => res.json())
+        .then(res => console.log(res))
+    })
+    
+    
+    
+}
+
 // SELL STATE
 export const addSellItem = (value) => (dispatch) => {
 
@@ -51,7 +66,7 @@ export const decreaseQuantity = (id) => (dispatch) => {
 
 }
 
-export const generateInvoice = (data) => (dispatch) => {
+export const generateInvoice = (data) => async(dispatch) => {
 
     return fetch(`${url}/invoice`, {
         method: 'POST',
@@ -61,8 +76,8 @@ export const generateInvoice = (data) => (dispatch) => {
         body: JSON.stringify(data)
     })
         .then(res => res.json())
-        // .then(res => dispatch({ type: actionTypes.GENERATE_INVOICE, payload: res }))
-        .then(res =>console.log(res))
+        .then(res => dispatch({ type: actionTypes.GENERATE_INVOICE}))
+        // .then(res =>console.log(res))
 
     /* return (
         dispatch({ type: actionTypes.GENERATE_INVOICE, payload: data })

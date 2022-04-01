@@ -46,6 +46,7 @@ public class InventoryController {
         return this.inventoryService.sellProduct(id, quantity);
     }
 
+
     @DeleteMapping(path = "/inventory/{id}/delete")
     private Mono<Void> deleteProduct(@PathVariable("id") String id) {
         return this.inventoryService.deleteProduct(id);

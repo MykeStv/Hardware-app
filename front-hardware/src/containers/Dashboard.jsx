@@ -16,7 +16,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         getInventory()
-    }, [])
+    }, [inventory])
 
     //avoid recreating every render data
     const columns = useMemo(() => COLUMNS, [])

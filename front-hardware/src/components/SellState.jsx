@@ -8,11 +8,13 @@ import { actionCreators } from '../App'
 
 const SellState = () => {
 
+    const emptyClient = { name: '', document: '' }
+
     const products = useSelector((state) => state.sell.products)
-    const [client, setClient] = useState({ name: '', document: '' })
+    const [client, setClient] = useState(emptyClient)
     const dispatch = useDispatch()
     // console.log(products);
-    const { generateInvoice } = bindActionCreators(actionCreators, dispatch)
+    const { generateInvoice, sellProduct } = bindActionCreators(actionCreators, dispatch)
 
     let total = 0;
     products.forEach(element => {
@@ -28,7 +30,9 @@ const SellState = () => {
         }
 
         generateInvoice(data)
+        sellProduct(products)
 
+        setClient(emptyClient)
     }
 
 
@@ -58,7 +62,7 @@ const SellState = () => {
                     }
                 </div>
                 <div className='footer_sell'>
-                    <InputClient setClient={setClient} />
+                    <InputClient setClient={setClient} client={client} />
                     <p className='total_sell'>Total: <span>${total}</span></p>
 
                     <button className='btn_generate' onClick={handleInvoice}>

@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const InputClient = ({ setClient }) => {
+const InputClient = ({ setClient, client }) => {
+
+    let name = client.name;
+    let document = client.document;
+
 
     const handleNameClient = (e) => {
         setClient(prevCliente => prevCliente = { ...prevCliente, name: e.target.value })
@@ -13,8 +17,8 @@ const InputClient = ({ setClient }) => {
     return (
         <>
             <form className='input_client'>
-                <input type="text" placeholder='Nombre cliente' onChange={handleNameClient} />
-                <input type="text" placeholder='Documento cliente' onChange={handleDocClient} />
+                <input type="text" placeholder='Nombre cliente' onChange={handleNameClient} value={name} />
+                <input type="text" placeholder='Documento cliente' onChange={handleDocClient} value={document} />
             </form>
         </>
     )

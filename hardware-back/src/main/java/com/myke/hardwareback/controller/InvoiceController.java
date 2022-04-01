@@ -1,6 +1,7 @@
 package com.myke.hardwareback.controller;
 
 import com.myke.hardwareback.model.Invoice;
+import com.myke.hardwareback.service.InventoryService;
 import com.myke.hardwareback.service.InvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,8 @@ public class InvoiceController {
 
     @Autowired
     private InvoiceService invoiceService;
+    @Autowired
+    private InventoryService inventoryService;
 
 
     @GetMapping(path = "/invoice")
@@ -35,6 +38,7 @@ public class InvoiceController {
                 .forEach(p ->  invoice.setTotal(invoice.getTotal() + p.getTotalProduct()));
 
         return this.invoiceService.saveInvoice(invoice);
+
     }
 
     @DeleteMapping(path = "/invoice/{id}/delete")

@@ -63,7 +63,9 @@ export const sellReducer = (state = initialState, action) => {
                 })
             } 
         
-        
+        case actionTypes.GENERATE_INVOICE:
+            return initialState
+
         case actionTypes.DELETE_SELLSTATE:
             // console.log(action.payload.id)
             const products = state.products.filter(item => item.id !== action.payload.id)
@@ -77,7 +79,7 @@ export const sellReducer = (state = initialState, action) => {
 
 }
 
-export const invoiceReducer = (state, action) => {
+/* export const invoiceReducer = (state, action) => {
     switch (action.type) {
         case actionTypes.GENERATE_INVOICE:
             return ''
@@ -86,4 +88,4 @@ export const invoiceReducer = (state, action) => {
         default:
             return state;
     }
-}
+} */
