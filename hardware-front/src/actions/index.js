@@ -14,4 +14,22 @@ export const getInventory = () => async(dispath) => {
         dispath({ type: actionTypes.GET_INVENTORY, payload: res })
     })
 
-} 
+}
+
+// SELL STATE
+export const addSellItem = (value) => (dispath) => {
+
+    return (
+        dispath({ type: actionTypes.ADD_SELLSTATE, payload: value })
+    )
+
+}
+
+export const deleteSellItem = (id) => (dispath) => {
+
+    return (
+        dispath({ type: actionTypes.DELETE_SELLSTATE, payload: {id: id} })
+    )
+
+}
+

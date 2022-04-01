@@ -8,6 +8,7 @@
     height: calc(100% - $height-footer);
     width: $width-sidebar;
     padding-left: 1.5rem;
+    z-index: $index-2;
     
     .elements {
         @include flex-column;

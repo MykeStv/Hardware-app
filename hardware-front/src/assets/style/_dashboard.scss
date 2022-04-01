@@ -4,6 +4,7 @@
     background: $color-backgroud-dark1;
     position: relative;
     top: 0;
+    left: 0;
     left: $width-sidebar;
     width: calc(100% - $width-sidebar);
     min-height: calc(100vh - $height-footer); //for look later, in case of error

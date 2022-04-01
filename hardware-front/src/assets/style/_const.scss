@@ -3,6 +3,7 @@ $color-backgroud-sidebar: #131B21;
 $color-backgroud-dark1: #192229;
 $color-backgroud-dark2: #182027;
 $color-backgroud-dark3: #141D23;
+$color-backgroud-dark4: #1F2731;
 $color-backgroud-page: #293038;
 $color-backgroud-page2: #BFC8CE;
 $color-backgroud-table: #131A20;
@@ -14,19 +15,22 @@ $color-gray2:#7C8791;
 $color-fuxia: #E21945;
 $color-fuxia2: #583040;
 $color-fuxia3: #381B27;
-
+$color-fuxia4: #724557;
 
 $color-green: #7B9723;
+$color-green2: #9fc427;
 
 $color-text-light: #fff;
 
 // -- space
-$width-sidebar: 12rem;
+$width-sidebar: 11rem;
+$width-sellbar: 16.75rem;
 $height-footer: 3rem;
 $border-radious: .5rem;
 
 // -- index
 $index-1 : 100;
+$index-2 : 10;
 
 // -- MINXIN
 @mixin flex-column {
@@ -50,4 +54,10 @@ $index-1 : 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+@mixin flex-space-between-column {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }

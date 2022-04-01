@@ -4,13 +4,15 @@
     align-items: center;
     row-gap: .5rem;
     padding: 1rem;
-    
+    margin-bottom: 1rem;
+    width: 100%;
     
 
     .text {
-        font-size: 1.3rem;
+        font-size: 1.15rem;
         color: $color-gray;
         font-weight: 500;
+        text-transform: uppercase;
     }
 
     .input {
@@ -23,7 +25,7 @@
         border: 1px solid $color-gray2;
         border-radius: 0.4rem;
         outline: none;
-        transition: .45s;
+        transition: .5s;
 
         &:hover, &:focus {
             border-color: $color-fuxia;

@@ -1,12 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { useTable, useSortBy, useGlobalFilter } from 'react-table'
+import { bindActionCreators } from 'redux';
+import { actionCreators } from '../App';
 import GlobalFilter from './GlobalFilter';
 
 const Table = ({ columns, data }) => {
 
+
+    const dispatch = useDispatch()
+    const { addSellItem } = bindActionCreators(actionCreators, dispatch)
+
+
+
     const addCart = (value) => {
-        console.log(value);
+
+        addSellItem(value)
     }
+
+    /* function addCart(value) {
+        console.log(dat);
+        addSellItem(value)
+    } */
 
     //add a column with a button
     const tableHooks = (hooks) => {
@@ -89,6 +104,7 @@ const Table = ({ columns, data }) => {
                     }
                 </tbody>
             </table>
+
         </div>
     )
 }
