@@ -7,4 +7,6 @@ export const actionTypes = {
     SET_DESABLE: 'set-desable',
     REMOVE_DESABLE: 'remove-desable',
 
+    INC_QUANTITY: 'inc-quantity',
+    DEC_QUANTITY: 'dec-quantity',
 }

@@ -6,7 +6,7 @@ const SellState = () => {
 
     const products = useSelector((state) => state.sell.products)
 
-    // console.log(products);
+    console.log(products);
 
     return (
         <div className='sellstate'>
@@ -31,8 +31,9 @@ const SellState = () => {
                     ))
                 }
             </div>
-            <div className='btn'>
-                <button>Generar Factura</button>
+            <div className='footer'>
+                <p>Total: { }</p>
+                <button className='generate'>Generar Factura</button>
             </div>
         </div>
     )

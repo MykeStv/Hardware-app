@@ -1,3 +1,4 @@
+import { Value } from "sass";
 import { actionTypes } from "../constants/actionTypes";
 
 const url = "http://localhost:8080/hardware/inventory"
@@ -20,7 +21,7 @@ export const getInventory = () => async(dispath) => {
 export const addSellItem = (value) => (dispath) => {
 
     return (
-        dispath({ type: actionTypes.ADD_SELLSTATE, payload: value })
+        dispath({ type: actionTypes.ADD_SELLSTATE, payload: {...value, quantity: 1} })
     )
 
 }
@@ -33,3 +34,12 @@ export const deleteSellItem = (id) => (dispath) => {
 
 }
 
+
+// QUANTITY
+export const increaseQuantity = () => (dispath) => {
+    
+    return (
+        dispath({ type: actionTypes.INC_QUANTITY, pay })
+    )
+
+}

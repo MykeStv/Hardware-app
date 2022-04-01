@@ -1,0 +1,37 @@
+
+.search {
+    @include flex-column;
+    align-items: center;
+    row-gap: .5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    
+
+    .text {
+        font-size: 1.15rem;
+        color: $color-gray;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    .input {
+        background: transparent;
+        color: $color-gray2;
+        width: 12rem;
+        text-align: center;
+        font-size: .975rem;
+        padding: .5rem 0.75rem;
+        border: 1px solid $color-gray2;
+        border-radius: 0.4rem;
+        outline: none;
+        transition: .5s;
+
+        &:hover, &:focus {
+            border-color: $color-fuxia;
+            width: 80%;
+            color: $color-gray;
+        }
+    }
+
+}

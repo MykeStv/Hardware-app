@@ -1,0 +1,25 @@
+.footer {
+    @include flex-space-between;
+    background: $color-backgroud-footer;
+    color:  $color-gray2;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: $height-footer;
+    padding: 1rem;
+    z-index: $index-1;
+
+    .copyright {
+        span {
+            color: $color-fuxia;
+        }
+    }
+
+    .author {
+        span {
+            color: $color-green;
+        }
+    }
+
+}   
