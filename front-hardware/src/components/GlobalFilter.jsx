@@ -24,7 +24,7 @@ const GlobalFilter = ({ preGlobalFilteredRows, globalFilter, setGlobalFilter }) 
                     setValue(e.target.value)
                     handleChange(e.target.value)
                 }}
-                placeholder={`${count} records...`}
+                placeholder={`${count} products...`}
             />
         </div>
     )

@@ -2,9 +2,8 @@ import React, { useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actionCreators } from '../App'
-import { useTable, useSortBy, useGlobalFilter } from 'react-table'
 import { COLUMNS } from '../constants/columns'
-// import GlobalFilter from './GlobalFilter';
+import TableComp from '../components/TableComp'
 
 const Inventory = () => {
 
@@ -37,30 +36,11 @@ const Inventory = () => {
         ])
     }
 
-    const tableInstance = useTable(
-        {
-            columns,
-            data
-        },
-        useGlobalFilter,
-        tableHooks,
-        useSortBy
-    )
-
-    const {
-        getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        rows,
-        prepareRow,
-        preGlobalFilteredRows,
-        setGlobalFilter,
-        state
-    } = tableInstance;
-
 
     return (
-        <div>Inventory</div>
+        <div className='inventory_page'>
+            <TableComp columns={columns} data={data} tableHooks={tableHooks} />
+        </div>
     )
 }
 
