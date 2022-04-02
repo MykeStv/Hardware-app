@@ -26,12 +26,20 @@ $color-text-light: #fff;
 // -- space
 $width-sidebar: 11rem;
 $width-sellbar: 16.75rem;
+$width-infoprod: 15rem;
 $height-footer: 3rem;
 $border-radious: .5rem;
 
 // -- index
 $index-1 : 100;
 $index-2 : 10;
+
+:export {
+    colorGreen: $color-green;
+    colorGreen2: $color-green2;
+    colorFuxia: $color-fuxia;
+    colorFuxiaLight: $color-fuxia5;
+}
 
 // -- MINXIN
 @mixin flex-column {
@@ -85,4 +93,34 @@ $index-2 : 10;
     top: 0;
     left: $width-sidebar;
     
+}
+
+// BUTTONS
+@mixin btn-green {
+    button {
+        background: $color-green;
+        color: #fff;
+        padding: 0.25rem .75rem;
+        transition: 0.25s;
+
+        &:hover {
+            background: $color-green2;
+            box-shadow: 0 0 12px  $color-green, 0 0 15px  $color-green;
+
+        }
+    }
+}
+
+@mixin btn-fuxia {
+    button {
+        background-color: $color-fuxia5;
+        color: #fff;
+        padding: 0.4rem 1rem;
+        transition: 0.25s;
+
+        &:hover {
+            background: $color-fuxia;
+            box-shadow: 0 0 12px  $color-fuxia5, 0 0 15px  $color-fuxia5;
+        }
+    }
 }

@@ -1,0 +1,91 @@
+.info_product {
+    
+    @include flex-center;
+    width: $width-infoprod;
+    position: fixed;
+    right: 0;
+    height: calc(100% - $height-footer);
+
+    .info_card {
+        @include flex-column;
+        background: $color-backgroud-table;
+        color: $color-gray2;
+        width: 100%;
+        align-items: center;
+        border-radius: .75rem 0 0 .75rem;
+        padding: 1rem 0;
+        row-gap: 1.5rem;
+
+        .info_graph {
+            
+            width: 148px;
+            height: 148px;                
+
+            .porcentage {
+                position: relative;
+                color: $color-gray;
+                font-size: 20px;
+                font-weight: 500;
+                padding: 0;
+                top: -93px;
+                left: calc(50% - 15px);
+
+                span {
+                    font-size: 1rem;
+                }
+            }
+
+            svg {
+                width: 148px;
+                height: 148px;
+
+                circle {
+                    width: 156px;
+                    height: 156px;
+                    fill: none;
+                    stroke-width: 18;
+                    stroke-dasharray: 352;
+                    stroke-dashoffset: 352;
+                    stroke-linecap: round;
+                    
+                    // primer circle
+                    &:nth-child(1) {
+                        stroke: $color-backgroud-dark4;
+                        stroke-dashoffset: 0;
+                    }
+                    /* &:nth-child(2) {
+                        stroke: $color-fuxia;
+                        
+                        stroke-dashoffset: calc(352 - (352 * 50) / 100);
+                        filter: drop-shadow(0 0 5px $color-fuxia);    
+                    } */
+                }
+            }
+            
+        }
+
+        .info_container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            text-align: center;
+            row-gap: .5rem;
+            column-gap: .5rem;
+            
+            h4 {
+                color: $color-text-light;
+                font-weight: 500
+            }
+
+        }
+
+        .info_btn {
+
+            // @include btn-green;
+            @include btn-fuxia;
+            //padding: 0.4rem 1rem;
+
+        }
+
+    }
+
+}

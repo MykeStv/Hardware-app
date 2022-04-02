@@ -2,7 +2,7 @@ import React from 'react'
 import { useTable, useSortBy, useGlobalFilter } from 'react-table'
 import GlobalFilter from './GlobalFilter';
 
-const TableComp = ({ columns, data, tableHooks }) => {
+const TableComp = ({ columns, data, tableHooks, classname }) => {
 
     const tableInstance = useTable(
         {
@@ -27,7 +27,7 @@ const TableComp = ({ columns, data, tableHooks }) => {
 
 
     return (
-        <div className='products_container'>
+        <div className={`products_container ${classname}`}>
             <GlobalFilter
                 preGlobalFilteredRows={preGlobalFilteredRows}
                 setGlobalFilter={setGlobalFilter}

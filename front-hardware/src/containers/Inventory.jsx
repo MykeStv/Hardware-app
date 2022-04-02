@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { actionCreators } from '../App'
 import { COLUMNS } from '../constants/columns'
 import TableComp from '../components/TableComp'
+import InfoProduct from '../components/InfoProduct'
 
 const Inventory = () => {
 
@@ -39,7 +40,11 @@ const Inventory = () => {
 
     return (
         <div className='inventory_page'>
-            <TableComp columns={columns} data={data} tableHooks={tableHooks} />
+            <TableComp
+                classname='table_inventory'
+                columns={columns} data={data} tableHooks={tableHooks}
+            />
+            <InfoProduct />
         </div>
     )
 }

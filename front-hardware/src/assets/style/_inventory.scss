@@ -1,4 +1,8 @@
 
 .inventory_page {    
     @include page-config;
+
+    .table_inventory {
+        width: calc(100% - $width-infoprod);
+    }
 }
