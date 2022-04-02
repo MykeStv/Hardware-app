@@ -8,10 +8,10 @@ import { COLUMNS_INVOICES } from '../constants/columns'
 const Invoice = () => {
 
     const invoices = useSelector((state) => state.invoice.invoices)
-    console.log(invoices);
+    // console.log(invoices);
 
     const dispatch = useDispatch()
-    const { getInvoices } = bindActionCreators(actionCreators, dispatch)
+    const { getInvoices, deleteInvoice } = bindActionCreators(actionCreators, dispatch)
 
     useEffect(() => {
         getInvoices()
@@ -21,6 +21,9 @@ const Invoice = () => {
     const columns = useMemo(() => COLUMNS_INVOICES, [])
     const data = useMemo(() => invoices, [invoices])
 
+    const handleDelete = (value) => {
+        deleteInvoice(value.id)
+    }
 
     //add a column with a button
     const tableHooks = (hooks) => {
@@ -30,7 +33,7 @@ const Invoice = () => {
                 id: 'addCart',
                 Header: 'Acción',
                 Cell: ({ row }) => (
-                    <button >
+                    <button onClick={() => handleDelete(row.values)}>
                         Eliminar
                     </button>
                 )

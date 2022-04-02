@@ -127,3 +127,26 @@ export const getInvoices = () => async(dispatch) => {
     })
 
 }
+
+export const deleteInvoice = (id) => async(dispatch) => {
+    
+    await fetch(`${url}/invoice/${id}/delete`, {
+        method: 'DELETE',
+        headers: {'Content-Type': 'application/json'}
+    })
+    // .then(res => res.json())
+    .then(res => {
+        // console.log(res)
+    })
+
+    return fetch(`${url}/invoice`, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'}
+    })
+    .then(res => res.json())
+    .then(res => {
+        // console.log(res)
+        dispatch({ type: actionTypes.GET_INVOICES, payload: res })
+    })
+
+}

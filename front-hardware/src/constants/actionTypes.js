@@ -19,4 +19,5 @@ export const actionTypes = {
 
     // INVOICE
     GET_INVOICES: 'get-invoices',
+    DELETE_INVOICE: 'delete-invoice',
 }
