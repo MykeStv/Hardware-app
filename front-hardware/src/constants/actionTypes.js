@@ -1,4 +1,5 @@
 export const actionTypes = {
+    // MAIN
     GET_INVENTORY: 'get-inventory',
 
     ADD_SELLSTATE: 'add-sellstate',
@@ -12,6 +13,10 @@ export const actionTypes = {
     MOD_QUANTITY: 'mod-quantity',
 
     GENERATE_INVOICE: 'generate-invoice',
-
+    
+    // INVENTORY
     SHOW_PRODUCT_INFO: 'show-prod-info',
+
+    // INVOICE
+    GET_INVOICES: 'get-invoices',
 }

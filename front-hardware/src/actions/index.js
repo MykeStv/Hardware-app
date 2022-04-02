@@ -111,3 +111,19 @@ export const showProductInfo = (value) => (dispatch) => {
         dispatch({ type: actionTypes.SHOW_PRODUCT_INFO, payload: value })
     )
 }
+
+
+// INVOICE
+export const getInvoices = () => async(dispatch) => {
+
+    return fetch(`${url}/invoice`, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'}
+    })
+    .then(res => res.json())
+    .then(res => {
+        // console.log(res)
+        dispatch({ type: actionTypes.GET_INVOICES, payload: res })
+    })
+
+}
