@@ -17,7 +17,6 @@ const Sidebar = () => {
                     <NavLink
                         to={'/'}
                         className={({ isActive }) => 'nav_link' + (isActive ? ' activated' : '')}
-
                     >
                         <BiHome className='icon' />
                         <span>Principal</span>

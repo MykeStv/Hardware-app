@@ -20,7 +20,7 @@ const Dashboard = () => {
 
     //avoid recreating every render data
     const columns = useMemo(() => COLUMNS, [])
-    const data = useMemo(() => inventory, [inventory])
+    const data = useMemo(() => inventory, [])
 
     // console.log(data);
 
