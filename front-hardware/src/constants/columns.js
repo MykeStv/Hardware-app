@@ -66,7 +66,11 @@ export const COLUMNS_INVOICES = [
         accessor: 'employee'
     },
     {
-        Header: 'Cliente doc',
+        Header: 'Cliente Nombre',
+        accessor: 'client.name'
+    },
+    {
+        Header: 'Cliente Doc',
         accessor: 'client.document'
     },
     {
