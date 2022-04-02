@@ -2,6 +2,7 @@ import React from 'react'
 import { BiHome, BiFile } from "react-icons/bi";
 import { FaBoxes } from "react-icons/fa";
 import { BsPersonBadge, BsPeople } from "react-icons/bs";
+import { NavLink } from 'react-router-dom';
 
 
 const Sidebar = () => {
@@ -13,27 +14,43 @@ const Sidebar = () => {
             </div>
             <div className='elements'>
                 <ul className='list'>
-                    <li className='item'>
+                    <NavLink
+                        to={'/'}
+                        className={({ isActive }) => 'nav_link' + (isActive ? ' activated' : '')}
+
+                    >
                         <BiHome className='icon' />
                         <span>Principal</span>
-                    </li>
-                    <li className='item'>
+                    </NavLink>
+                    <NavLink
+                        to={'/inventory'}
+                        className={({ isActive }) => 'nav_link' + (isActive ? ' activated' : '')}
+                    >
                         <FaBoxes className='icon' />
                         <span>Inventario</span>
-                    </li>
-                    <li className='item'>
+                    </NavLink>
+                    <NavLink
+                        to={'/invoice'}
+                        className={({ isActive }) => 'nav_link' + (isActive ? ' activated' : '')}
+                    >
                         <BiFile className='icon' />
                         <span>Facturas</span>
-                    </li>
-                    <li className='item'>
+                    </NavLink>
+                    <NavLink
+                        to={'/client'}
+                        className={({ isActive }) => 'nav_link' + (isActive ? ' activated' : '')}
+                    >
                         <BsPeople className='icon' />
                         <span>Clientes</span>
-                    </li>
+                    </NavLink>
                 </ul>
-                <div className='item'>
+                <NavLink
+                    to={'/profile'}
+                    className={({ isActive }) => 'nav_link' + (isActive ? ' activated' : '')}
+                >
                     <BsPersonBadge className='icon' />
                     <span>Perfil</span>
-                </div>
+                </NavLink>
             </div>
         </div>
     )
