@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actionCreators } from '../App'
 import { useTable, useSortBy, useGlobalFilter } from 'react-table'
+import { COLUMNS } from '../constants/columns'
 // import GlobalFilter from './GlobalFilter';
 
 const Inventory = () => {
@@ -14,12 +15,29 @@ const Inventory = () => {
 
     useEffect(() => {
         getInventory()
-    }, [inventory])
+    }, [])
 
     //TABLE
+    const columns = useMemo(() => COLUMNS, [])
+    const data = useMemo(() => inventory, [inventory])
 
+    //add a column with a button
+    const tableHooks = (hooks) => {
+        hooks.visibleColumns.push((columns) => [
+            ...columns,
+            {
+                id: 'addCart',
+                Header: 'Acción',
+                Cell: ({ row }) => (
+                    <button >
+                        Info
+                    </button>
+                )
+            }
+        ])
+    }
 
-    /* const tableInstance = useTable(
+    const tableInstance = useTable(
         {
             columns,
             data
@@ -27,18 +45,18 @@ const Inventory = () => {
         useGlobalFilter,
         tableHooks,
         useSortBy
-    ) */
-    /* 
-        const {
-            getTableProps,
-            getTableBodyProps,
-            headerGroups,
-            rows,
-            prepareRow,
-            preGlobalFilteredRows,
-            setGlobalFilter,
-            state
-        } = tableInstance; */
+    )
+
+    const {
+        getTableProps,
+        getTableBodyProps,
+        headerGroups,
+        rows,
+        prepareRow,
+        preGlobalFilteredRows,
+        setGlobalFilter,
+        state
+    } = tableInstance;
 
 
     return (

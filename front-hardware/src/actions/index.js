@@ -18,16 +18,36 @@ export const getInventory = () => async(dispatch) => {
 
 export const sellProduct = (products) => async(dispatch) => {
     
-    products.forEach(product => {
+    /* products.forEach(product => {
         fetch(`${url}/inventory/${product.id}/sell/${product.quantity}`, {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'}
         })
         .then(res => res.json())
         .then(res => console.log(res))
+    }) */
+
+    for (const product of products) {
+        // await is important
+        await fetch(`${url}/inventory/${product.id}/sell/${product.quantity}`, {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'}
+        })
+        .then(res => res.json())
+        .then(res => console.log(res))
+    }
+    
+    // getInventory()
+    
+    return fetch(`${url}/inventory`, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'}
     })
-    
-    
+    .then(res => res.json())
+    .then(res => {
+        // console.log(res)
+        dispatch({ type: actionTypes.GET_INVENTORY, payload: res })
+    })
     
 }
 

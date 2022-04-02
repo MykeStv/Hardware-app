@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actionCreators } from '../App'
@@ -14,13 +14,16 @@ const Dashboard = () => {
 
     const { getInventory } = bindActionCreators(actionCreators, dispatch)
 
+    // const data = inventory;
+    console.log(inventory);
+
     useEffect(() => {
         getInventory()
-    }, [inventory])
+    }, [])
 
     //avoid recreating every render data
     const columns = useMemo(() => COLUMNS, [])
-    const data = useMemo(() => inventory, [])
+    const data = useMemo(() => inventory, [inventory])
 
     // console.log(data);
 
