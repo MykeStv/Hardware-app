@@ -3,10 +3,12 @@
     position: absolute;
     left: 0;
     width: calc(100% - $width-sellbar);
-    height: 100%;
+    // height: 100%;
     
     @include flex-column;
     align-items: center;
+    
+    
 
     
     table {
@@ -16,6 +18,9 @@
         border-radius: $border-radious;
         text-align: center;
         width: 95%;
+    
+    
+    
         
 
         tr {

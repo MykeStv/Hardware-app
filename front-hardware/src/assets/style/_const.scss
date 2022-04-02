@@ -88,10 +88,13 @@ $index-2 : 10;
 @mixin page-config {
     background: $color-backgroud-dark1;
     width: calc(100% - $width-sidebar);
-    min-height: calc(100vh - $height-footer);
+    height: calc(100vh - $height-footer);
+    
+    overflow-y: auto; //backgroud all along
     position: relative;
     top: 0;
     left: $width-sidebar;
+    // padding: 2rem 0;
     
 }
 

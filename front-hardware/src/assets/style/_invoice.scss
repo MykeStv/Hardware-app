@@ -1,0 +1,13 @@
+
+.invoice_page {
+    @include page-config;
+    // padding: 2rem 0;
+    
+    .table_invoice {
+        width: 100%;
+
+        table {
+            width: 90%;
+        }
+    }
+}

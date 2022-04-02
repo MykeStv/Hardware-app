@@ -51,3 +51,31 @@ export const COLUMNS_INVENTARIO = [
         accessor: 'maxStock'
     }
 ]
+
+export const COLUMNS_INVOICES = [
+    {
+        Header: 'Id',
+        accessor: 'id'
+    },
+    {
+        Header: 'Fecha',
+        accessor: 'date'
+    },
+    {
+        Header: 'Empleado',
+        accessor: 'employee'
+    },
+    {
+        Header: 'Cliente doc',
+        accessor: 'client.document'
+    },
+    {
+        Header: 'Total',
+        accessor: 'total'
+    },
+    /* {
+        Header: '',
+        accessor: ''
+    } */
+]
+

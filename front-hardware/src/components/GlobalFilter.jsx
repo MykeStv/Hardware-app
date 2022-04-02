@@ -14,7 +14,7 @@ const GlobalFilter = ({ preGlobalFilteredRows, globalFilter, setGlobalFilter }) 
 
     return (
         <div className='search'>
-            <span className='text'>Search</span>
+            <span className='text'>Buscar</span>
             <input
 
                 className='input'
@@ -24,7 +24,7 @@ const GlobalFilter = ({ preGlobalFilteredRows, globalFilter, setGlobalFilter }) 
                     setValue(e.target.value)
                     handleChange(e.target.value)
                 }}
-                placeholder={`${count} products...`}
+                placeholder={`${count} items...`}
             />
         </div>
     )
