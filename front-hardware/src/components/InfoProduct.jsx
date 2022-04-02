@@ -1,12 +1,19 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import Style from '../assets/style/style.scss'
 
 const InfoProduct = () => {
 
+    const product = useSelector((state) => state.infoProduct.product)
+    console.log(product);
 
     const colorFuxia = Style.colorGreen2;
 
-    const porcentage = 50;
+    function isEmpty(obj) {
+        return Object.keys(obj).length === 0;
+    }
+
+    const porcentage = isEmpty(product) ? 0 : Math.round((product.stock / product.maxStock) * 100);
 
     const circle2 = {
         stroke: colorFuxia,
@@ -26,34 +33,34 @@ const InfoProduct = () => {
                         <circle cx='74' cy='74' r='56' style={circle2} />
                     </svg>
 
-                    <p className='porcentage'>50<span>%</span></p>
+                    <p className='porcentage'>{porcentage}<span>%</span></p>
 
                 </div>
 
                 <div className='info_container'>
                     <div className='info_element'>
-                        <h4>id</h4>
-                        <span>asdas</span>
+                        <h4>Id</h4>
+                        <span>{product.id}</span>
                     </div>
                     <div className='info_element'>
-                        <h4>nombre</h4>
-                        <span>asdas</span>
+                        <h4>Nombre</h4>
+                        <span>{product.productName}</span>
                     </div>
                     <div className='info_element'>
-                        <h4>seccion</h4>
-                        <span>herramienta</span>
+                        <h4>Sección</h4>
+                        <span>{product.section}</span>
                     </div>
                     <div className='info_element'>
-                        <h4>precio</h4>
-                        <span>500</span>
+                        <h4>Precio</h4>
+                        <span>${product.price}</span>
                     </div>
                     <div className='info_element'>
-                        <h4>stock</h4>
-                        <span>12</span>
+                        <h4>Stock</h4>
+                        <span>{product.stock}</span>
                     </div>
                     <div className='info_element'>
-                        <h4>Descripion</h4>
-                        <span>asdas</span>
+                        <h4>Máximo</h4>
+                        <span>{product.maxStock}</span>
                     </div>
                 </div>
                 <div className='info_btn'>

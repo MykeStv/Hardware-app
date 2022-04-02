@@ -19,7 +19,8 @@
         .info_graph {
             
             width: 148px;
-            height: 148px;                
+            height: 148px;  
+                     
 
             .porcentage {
                 position: relative;
@@ -29,6 +30,7 @@
                 padding: 0;
                 top: -93px;
                 left: calc(50% - 15px);
+                transition: .5s;
 
                 span {
                     font-size: 1rem;
@@ -47,6 +49,7 @@
                     stroke-dasharray: 352;
                     stroke-dashoffset: 352;
                     stroke-linecap: round;
+                    transition: .5s;
                     
                     // primer circle
                     &:nth-child(1) {
@@ -70,6 +73,7 @@
             text-align: center;
             row-gap: .5rem;
             column-gap: .5rem;
+            padding: 0 .25rem;
             
             h4 {
                 color: $color-text-light;

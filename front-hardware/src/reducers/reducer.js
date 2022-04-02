@@ -79,6 +79,22 @@ export const sellReducer = (state = initialState, action) => {
 
 }
 
+const initialProductState = {
+    product: {}
+}
+
+export const infoProductReducer = (state = initialProductState, action) => {
+    switch (action.type) {
+        case actionTypes.SHOW_PRODUCT_INFO:
+            return {
+                ...state, product: action.payload
+            }
+
+        default:
+            return state;
+    }
+}
+
 /* export const invoiceReducer = (state, action) => {
     switch (action.type) {
         case actionTypes.GENERATE_INVOICE:

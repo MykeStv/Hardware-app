@@ -15,6 +15,7 @@ public class Inventory {
     private Double price;
     private String section;
     private Integer stock;
+    private Integer maxStock;
     private String description;
 
     //GETTER && SETTER
@@ -56,6 +57,14 @@ public class Inventory {
 
     public void setStock(Integer stock) {
         this.stock = stock;
+    }
+
+    public Integer getMaxStock() {
+        return maxStock;
+    }
+
+    public void setMaxStock(Integer maxStock) {
+        this.maxStock = maxStock;
     }
 
     public String getDescription() {

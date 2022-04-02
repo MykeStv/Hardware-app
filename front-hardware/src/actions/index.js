@@ -104,3 +104,10 @@ export const generateInvoice = (data) => async(dispatch) => {
     ) */
 
 }
+
+//INVENTORY
+export const showProductInfo = (value) => (dispatch) => {
+    return (
+        dispatch({ type: actionTypes.SHOW_PRODUCT_INFO, payload: value })
+    )
+}
