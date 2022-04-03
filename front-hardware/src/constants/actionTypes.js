@@ -18,6 +18,7 @@ export const actionTypes = {
     SHOW_PRODUCT_INFO: 'show-prod-info',
     EDIT_PRODUCT_INFO: 'edit-prod-info',
     ADD_PRODUCT: 'add-prod',
+    DELETE_PRODUCT: 'delete-prod',
 
     // INVOICE
     GET_INVOICES: 'get-invoices',

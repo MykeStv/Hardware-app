@@ -45,8 +45,9 @@ public class InventoryServiceImpl implements InventoryService {
     }
 
     @Override
-    public Mono<Void> deleteProduct(String id) {
-        return this.inventoryRepository.deleteById(id);
+    public Mono<Inventory> deleteProduct(String id) {
+        return this.inventoryRepository.findById(id)
+                .flatMap(p -> this.inventoryRepository.deleteById(p.getId()).thenReturn(p));
     }
 
     @Override

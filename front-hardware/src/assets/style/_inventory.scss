@@ -4,5 +4,17 @@
 
     .table_inventory {
         width: calc(100% - $width-infoprod);
+
+        .inventory_actions {
+            display: flex;
+            column-gap: 0.2rem;           
+
+            .btn_delete {
+                @include btn_fuxia_impl;
+                padding: 0.25rem 0.5rem;
+                
+            }
+
+        }
     }
 }

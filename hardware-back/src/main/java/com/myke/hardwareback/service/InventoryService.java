@@ -16,7 +16,7 @@ public interface InventoryService {
 
     Mono<Inventory> updateProduct(String id, Inventory inventory);
 
-    Mono<Void> deleteProduct(String id);
+    Mono<Inventory> deleteProduct(String id);
 
     Mono<Inventory> increaseStock(String id, Integer quantity);
 

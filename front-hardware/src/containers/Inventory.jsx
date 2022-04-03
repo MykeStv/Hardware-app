@@ -5,13 +5,14 @@ import { actionCreators } from '../App'
 import { COLUMNS_INVENTARIO } from '../constants/columns'
 import TableComp from '../components/TableComp'
 import InfoProduct from '../components/InfoProduct'
+import { BiTrashAlt } from "react-icons/bi";
 
 const Inventory = () => {
 
     const inventory = useSelector((state) => state.inventory.products)
     const dispatch = useDispatch()
 
-    const { getInventory, showProductInfo } = bindActionCreators(actionCreators, dispatch)
+    const { getInventory, showProductInfo, deleteProduct } = bindActionCreators(actionCreators, dispatch)
 
     useEffect(() => {
         getInventory()
@@ -20,6 +21,10 @@ const Inventory = () => {
     const showInfo = (value) => {
         // console.log(value);
         showProductInfo(value)
+    }
+
+    const handleDelete = (value) => {
+        deleteProduct(value.id)
     }
 
     //TABLE
@@ -35,9 +40,14 @@ const Inventory = () => {
                 id: 'addCart',
                 Header: 'Acción',
                 Cell: ({ row }) => (
-                    <button onClick={() => showInfo(row.values)}>
-                        Info
-                    </button>
+                    <div className='inventory_actions'>
+                        <button onClick={() => showInfo(row.values)}>
+                            Info
+                        </button>
+                        <button className='btn_delete' onClick={() => handleDelete(row.values)}>
+                            <BiTrashAlt />
+                        </button>
+                    </div>
                 )
             }
         ])

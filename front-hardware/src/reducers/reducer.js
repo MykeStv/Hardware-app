@@ -24,11 +24,16 @@ export const reducerInventory = (state = initialState, action) => {
         
         case actionTypes.ADD_PRODUCT:
 
-            // state.products.push(action.payload)
-            // console.log(state)
-
             return {
                 ...state, products: [ ...state.products, action.payload ]
+            }
+
+        case actionTypes.DELETE_PRODUCT:
+
+            return {
+                ...state, products: state.products.filter(p => (
+                    p.id != action.payload.id
+                ))
             }
         
         default:

@@ -140,6 +140,17 @@ $index-2 : 10;
         }
     }
 }
+@mixin btn_fuxia_impl {
+    background-color: $color-fuxia5;
+        color: #fff;
+        padding: 0.25rem .75rem;
+        transition: 0.25s;
+
+        &:hover {
+            background: $color-fuxia;
+            box-shadow: 0 0 12px  $color-fuxia5, 0 0 15px  $color-fuxia5;
+        }
+}
 
 // INPUTS
 @mixin input-short($color, $color2) {

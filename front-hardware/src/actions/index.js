@@ -143,6 +143,19 @@ export const addProduct = (value) => async(dispatch) => {
 
 }
 
+export const deleteProduct = (id) => async(dispatch) => {
+    
+    return fetch(`${url}/inventory/${id}/delete`, {
+        method: 'DELETE',
+        headers: {'Content-Type': 'application/json'}
+    })
+    .then(res => res.json())
+    .then(res => {
+        dispatch({ type: actionTypes.DELETE_PRODUCT, payload: res })
+    })
+
+}
+
 
 // INVOICE
 export const getInvoices = () => async(dispatch) => {
