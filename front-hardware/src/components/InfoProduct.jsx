@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import Style from '../assets/style/style.scss'
+import EditProduct from './EditProduct';
+import DataProduct from './DataProduct';
 
 const InfoProduct = () => {
 
     const product = useSelector((state) => state.infoProduct.product)
-    console.log(product);
+    const [isEditing, setIsEditing] = useState(false)
+    console.log(isEditing);
+
+    useEffect(() => {
+        setIsEditing(false)
+    }, [product])
 
     const colorFuxia = Style.colorGreen2;
 
@@ -22,6 +29,15 @@ const InfoProduct = () => {
 
     }
 
+    const toEditing = () => {
+        setIsEditing(true)
+    }
+
+    const cancelEditing = () => {
+        setIsEditing(false)
+    }
+
+
     return (
         <div className='info_product'>
             <div className='info_card'>
@@ -36,36 +52,32 @@ const InfoProduct = () => {
                     <p className='porcentage'>{porcentage}<span>%</span></p>
 
                 </div>
+                {
 
-                <div className='info_container'>
-                    <div className='info_element'>
-                        <h4>Id</h4>
-                        <span>{product.id}</span>
-                    </div>
-                    <div className='info_element'>
-                        <h4>Nombre</h4>
-                        <span>{product.productName}</span>
-                    </div>
-                    <div className='info_element'>
-                        <h4>Sección</h4>
-                        <span>{product.section}</span>
-                    </div>
-                    <div className='info_element'>
-                        <h4>Precio</h4>
-                        <span>${product.price}</span>
-                    </div>
-                    <div className='info_element'>
-                        <h4>Stock</h4>
-                        <span>{product.stock}</span>
-                    </div>
-                    <div className='info_element'>
-                        <h4>Máximo</h4>
-                        <span>{product.maxStock}</span>
-                    </div>
-                </div>
-                <div className='info_btn'>
-                    <button>Editar</button>
-                </div>
+                    !isEditing ?
+                        <>
+                            <DataProduct product={product} />
+                            <div className='info_btn'>
+                                <button onClick={toEditing}>
+                                    Editar
+                                </button>
+                            </div>
+                        </>
+
+                        :
+                        <>
+                            <EditProduct productData={product} />
+                            <div className='info_btn'>
+                                <button onClick={cancelEditing}>
+                                    Cancelar
+                                </button>
+                            </div>
+                        </>
+
+                }
+
+
+
 
             </div>
         </div>
