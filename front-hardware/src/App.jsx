@@ -9,6 +9,7 @@ import Inventory from "./containers/Inventory";
 import Invoice from './containers/Invoice'
 import Client from './containers/Client'
 import Profile from './containers/Profile'
+import SignUp from "./components/SignUp";
 
 
 export * as actionCreators from './actions/index'
@@ -19,18 +20,15 @@ function App() {
       <BrowserRouter>
         <Provider store={store}>
 
-          <Footer />
-          <Sidebar />
-
-
           <Routes>
-            <Route path='/' element={<Dashboard />} />
-            <Route path='/inventory' element={<Inventory />} />
-            <Route path='/invoice' element={<Invoice />} />
-            <Route path='/client' element={<Client />} />
-            <Route path='/profile' element={<Profile />} />
+            <Route path="/*" element={<Sidebar />}>
+            </Route>
+
+            <Route path='/signup' element={<SignUp />} />
 
           </Routes>
+
+          <Footer />
 
         </Provider>
       </BrowserRouter>

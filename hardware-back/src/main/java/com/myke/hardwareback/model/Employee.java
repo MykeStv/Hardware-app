@@ -12,7 +12,7 @@ public class Employee {
     @Id
     private String id = UUID.randomUUID().toString().substring(0,10);
     private String name;
-    private String username;
+    //private String username;
     private String email;
     private String document;
     private String rol;
@@ -50,13 +50,13 @@ public class Employee {
         this.rol = rol;
     }
 
-    public String getUsername() {
+    /*public String getUsername() {
         return username;
     }
 
     public void setUsername(String username) {
         this.username = username;
-    }
+    }*/
 
     public String getEmail() {
         return email;

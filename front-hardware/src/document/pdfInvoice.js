@@ -23,13 +23,13 @@ export const generatePDF = (invoice) => {
     let space_y = 220;
     invoice.products.forEach((p, i) => {
         space_y += 20
-        doc.text(`${i+1} ${p.productName} $${p.price} x${p.quantity} total: $${p.price * p.quantity}`, 40, space_y)
+        doc.text(`${i+1}. ${p.productName}  $${p.price}  x${p.quantity}   total: $${p.price * p.quantity}`, 40, space_y)
     })
 
     doc.setFontSize(16)
     doc.text(`TOTAL:  $${invoice.total}`, 20, space_y + 40)
     
-    doc.save('demo.pdf')
+    doc.save(`factura_${invoice.id}_${invoice.date}.pdf`)
 
 }
 

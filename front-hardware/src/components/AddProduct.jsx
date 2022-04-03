@@ -28,7 +28,7 @@ const AddProduct = ({ cancelAdding, applyAdding }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='form_adding' onSubmit={handleSubmit} >
             <div className='info_container adding'>
                 {/* <label className='info_element'>
                     <h4>Id</h4>

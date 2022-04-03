@@ -1,4 +1,10 @@
 
 .client_page {
     @include page-config;
+    @include flex-center;
+
+    .client_container {
+        color: $color-gray;
+        font-size: 1.25rem;
+    }
 }

@@ -99,6 +99,12 @@
             
         }
 
+        .form_adding {
+            @include flex-column;
+            row-gap: 1.5rem;
+            align-items: center;
+        }
+
         .info_btn {
 
             // @include btn-green;
