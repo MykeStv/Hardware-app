@@ -11,6 +11,17 @@ export const reducerInventory = (state = initialState, action) => {
                 ...state, products: action.payload
             }
 
+        case actionTypes.EDIT_PRODUCT_INFO:
+            return {
+                ...state, products: state.products.map(product => {
+                    if (product.id === action.payload.id) {
+                        return product = action.payload
+                    } else {
+                        return product
+                    }
+                })
+            } 
+
         default:
             return state
     }

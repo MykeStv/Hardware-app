@@ -112,6 +112,21 @@ export const showProductInfo = (value) => (dispatch) => {
     )
 }
 
+export const editProductInfo = (productInfo) => async(dispatch) => {
+
+    return fetch(`${url}/inventory/${productInfo.id}`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(productInfo)
+    })
+    .then(res => res.json())
+    .then(res => {
+        // console.log(res)
+        dispatch({ type: actionTypes.EDIT_PRODUCT_INFO, payload: res })
+    })
+
+}
+
 
 // INVOICE
 export const getInvoices = () => async(dispatch) => {

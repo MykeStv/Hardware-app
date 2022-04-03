@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Style from '../assets/style/style.scss'
 import EditProduct from './EditProduct';
 import DataProduct from './DataProduct';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from '../App';
 
 const InfoProduct = () => {
 
     const product = useSelector((state) => state.infoProduct.product)
     const [isEditing, setIsEditing] = useState(false)
-    console.log(isEditing);
+    const dispatch = useDispatch()
+
+    // console.log(product);
+
+    const { editProductInfo } = bindActionCreators(actionCreators, dispatch)
 
     useEffect(() => {
         setIsEditing(false)
@@ -30,10 +36,19 @@ const InfoProduct = () => {
     }
 
     const toEditing = () => {
-        setIsEditing(true)
+
+        if (!isEmpty(product)) {
+            setIsEditing(true)
+        }
+
     }
 
     const cancelEditing = () => {
+        setIsEditing(false)
+    }
+
+    const applyEditing = (productChanges) => {
+        editProductInfo(productChanges)
         setIsEditing(false)
     }
 
@@ -56,22 +71,18 @@ const InfoProduct = () => {
 
                     !isEditing ?
                         <>
-                            <DataProduct product={product} />
-                            <div className='info_btn'>
-                                <button onClick={toEditing}>
-                                    Editar
-                                </button>
-                            </div>
-                        </>
+                            <DataProduct product={product} toEditing={toEditing} />
 
+                        </>
                         :
                         <>
-                            <EditProduct productData={product} />
-                            <div className='info_btn'>
-                                <button onClick={cancelEditing}>
-                                    Cancelar
-                                </button>
-                            </div>
+
+                            <EditProduct
+                                productData={product}
+                                cancelEditing={cancelEditing}
+                                applyEditing={applyEditing}
+                            />
+
                         </>
 
                 }

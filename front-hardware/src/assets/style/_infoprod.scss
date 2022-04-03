@@ -77,9 +77,26 @@
             
             h4 {
                 color: $color-text-light;
+                color: $color-gray;
                 font-weight: 500
             }
 
+        }
+
+        .editing {
+            grid-template-columns: 1fr;
+            row-gap: 0;
+
+            input {
+                @include input-short($color-fuxia, $color-fuxia5);
+                text-align: center;
+                color: $color-gray2;
+
+                &:focus {
+                    color: $color-gray;
+                }
+            }
+            
         }
 
         .info_btn {
@@ -87,7 +104,12 @@
             // @include btn-green;
             @include btn-fuxia;
             //padding: 0.4rem 1rem;
+            display: flex;
+            column-gap: .5rem;
 
+            .btn_apply {
+                @include btn-green-impl;
+            }
         }
 
     }
