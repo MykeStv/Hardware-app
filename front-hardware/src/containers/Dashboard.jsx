@@ -15,7 +15,7 @@ const Dashboard = () => {
     const { getInventory } = bindActionCreators(actionCreators, dispatch)
 
     // const data = inventory;
-    console.log(inventory);
+    // console.log(inventory);
 
     useEffect(() => {
         getInventory()

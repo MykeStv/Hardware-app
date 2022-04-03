@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react'
+import { useDispatch } from 'react-redux';
 import { useTable, useSortBy, useGlobalFilter } from 'react-table'
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../App';

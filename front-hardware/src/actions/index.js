@@ -1,4 +1,5 @@
 import { actionTypes } from "../constants/actionTypes";
+import { generatePDF } from "../document/pdfInvoice";
 
 const url = "http://localhost:8080/hardware"
 
@@ -37,7 +38,6 @@ export const sellProduct = (products) => async(dispatch) => {
         .then(res => console.log(res))
     }
     
-    // getInventory()
     
     return fetch(`${url}/inventory`, {
         method: 'GET',
@@ -96,7 +96,10 @@ export const generateInvoice = (data) => async(dispatch) => {
         body: JSON.stringify(data)
     })
         .then(res => res.json())
-        .then(res => dispatch({ type: actionTypes.GENERATE_INVOICE}))
+        .then(res => {
+            generatePDF(res)
+            dispatch({ type: actionTypes.GENERATE_INVOICE})
+        })
         // .then(res =>console.log(res))
 
     /* return (

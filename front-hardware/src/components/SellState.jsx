@@ -32,6 +32,7 @@ const SellState = () => {
         generateInvoice(data)
         sellProduct(products)
 
+
         setClient(emptyClient)
     }
 

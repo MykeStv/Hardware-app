@@ -32,7 +32,7 @@ export const reducerInventory = (state = initialState, action) => {
 
             return {
                 ...state, products: state.products.filter(p => (
-                    p.id != action.payload.id
+                    p.id !== action.payload.id
                 ))
             }
         
@@ -49,7 +49,7 @@ export const sellReducer = (state = initialState, action) => {
             // Evita que se agrege el mismo producto
             let productExist = false;
             state.products.forEach(item => {
-                if (item.id == action.payload.id) {
+                if (item.id === action.payload.id) {
                     productExist = true
                 }
             })
