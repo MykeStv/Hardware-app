@@ -5,16 +5,18 @@ import EditProduct from './EditProduct';
 import DataProduct from './DataProduct';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../App';
+import AddProduct from './AddProduct';
 
 const InfoProduct = () => {
 
     const product = useSelector((state) => state.infoProduct.product)
     const [isEditing, setIsEditing] = useState(false)
+    const [isAdding, setIsAdding] = useState(false)
     const dispatch = useDispatch()
 
     // console.log(product);
 
-    const { editProductInfo } = bindActionCreators(actionCreators, dispatch)
+    const { editProductInfo, addProduct } = bindActionCreators(actionCreators, dispatch)
 
     useEffect(() => {
         setIsEditing(false)
@@ -52,6 +54,18 @@ const InfoProduct = () => {
         setIsEditing(false)
     }
 
+    const toAdding = () => {
+        setIsAdding(true)
+    }
+
+    const cancelAdding = () => {
+        setIsAdding(false)
+    }
+    const applyAdding = (productNew) => {
+        addProduct(productNew)
+        setIsAdding(false)
+    }
+
 
     return (
         <div className='info_product'>
@@ -69,26 +83,32 @@ const InfoProduct = () => {
                 </div>
                 {
 
-                    !isEditing ?
+                    (!isEditing && !isAdding) ?
                         <>
-                            <DataProduct product={product} toEditing={toEditing} />
-
-                        </>
-                        :
-                        <>
-
-                            <EditProduct
-                                productData={product}
-                                cancelEditing={cancelEditing}
-                                applyEditing={applyEditing}
+                            <DataProduct
+                                product={product}
+                                toEditing={toEditing}
+                                toAdding={toAdding}
                             />
 
                         </>
+                        : (isEditing) ?
+                            <>
+
+                                <EditProduct
+                                    productData={product}
+                                    cancelEditing={cancelEditing}
+                                    applyEditing={applyEditing}
+                                />
+
+                            </>
+                            :
+                            <AddProduct
+                                cancelAdding={cancelAdding}
+                                applyAdding={applyAdding}
+                            />
 
                 }
-
-
-
 
             </div>
         </div>

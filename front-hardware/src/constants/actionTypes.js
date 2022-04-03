@@ -17,6 +17,7 @@ export const actionTypes = {
     // INVENTORY
     SHOW_PRODUCT_INFO: 'show-prod-info',
     EDIT_PRODUCT_INFO: 'edit-prod-info',
+    ADD_PRODUCT: 'add-prod',
 
     // INVOICE
     GET_INVOICES: 'get-invoices',

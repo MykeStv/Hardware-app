@@ -21,7 +21,16 @@ export const reducerInventory = (state = initialState, action) => {
                     }
                 })
             } 
+        
+        case actionTypes.ADD_PRODUCT:
 
+            // state.products.push(action.payload)
+            // console.log(state)
+
+            return {
+                ...state, products: [ ...state.products, action.payload ]
+            }
+        
         default:
             return state
     }

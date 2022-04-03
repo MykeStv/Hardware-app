@@ -127,6 +127,22 @@ export const editProductInfo = (productInfo) => async(dispatch) => {
 
 }
 
+export const addProduct = (value) => async(dispatch) => {
+
+    return fetch(`${url}/inventory`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(value)
+    })
+    .then(res => res.json())
+    .then(res => {
+        dispatch({ type: actionTypes.ADD_PRODUCT, payload: res })
+    })
+
+}
+
 
 // INVOICE
 export const getInvoices = () => async(dispatch) => {

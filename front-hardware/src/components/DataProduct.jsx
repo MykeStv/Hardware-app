@@ -1,6 +1,6 @@
 import React from 'react'
 
-const dataProduct = ({ product, toEditing }) => {
+const dataProduct = ({ product, toEditing, toAdding }) => {
 
 
     return (
@@ -20,7 +20,10 @@ const dataProduct = ({ product, toEditing }) => {
                 </div>
                 <div className='info_element'>
                     <h4>Precio</h4>
-                    <span>${product.price}</span>
+                    {
+                        product.price == null ? '' :
+                            <span>${product.price}</span>
+                    }
                 </div>
                 <div className='info_element'>
                     <h4>Stock</h4>
@@ -35,6 +38,9 @@ const dataProduct = ({ product, toEditing }) => {
             <div className='info_btn'>
                 <button onClick={toEditing}>
                     Editar
+                </button>
+                <button onClick={toAdding}>
+                    Agregar
                 </button>
             </div>
         </>
