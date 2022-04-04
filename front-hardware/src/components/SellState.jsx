@@ -11,8 +11,8 @@ const SellState = () => {
     const emptyClient = { name: '', document: '' }
 
     const products = useSelector((state) => state.sell.products)
-    // const authState = useSelector((state) => state.authentication.authState)
-    const authState = JSON.parse(sessionStorage.auth)
+    const authState = useSelector((state) => state.authentication.authState)
+    // const authState = JSON.parse(sessionStorage.auth)
     const [client, setClient] = useState(emptyClient)
     const dispatch = useDispatch()
     // console.log(products);

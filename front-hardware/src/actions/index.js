@@ -224,8 +224,8 @@ export const signup = (email, password) => async(dispatch) => {
     const userData = createUserWithEmailAndPassword(auth, email, password)
         .then(res => {
             // console.log(res)
-            const resJson = JSON.stringify(res.user)
-            sessionStorage.setItem('auth', resJson)
+            // const resJson = JSON.stringify(res.user)
+            // sessionStorage.setItem('auth', resJson)
             dispatch({ type:actionTypes.SET_AUTHSTATE, payload:res.user })
 
         }).catch(e => {
