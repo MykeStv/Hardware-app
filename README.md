@@ -11,7 +11,7 @@ Cuenta creada para usar como prueba:
     correo: ciri@gmail.com
     password: 123456
 
-Bakc con swagger: https://donraul-api.herokuapp.com/swagger-ui/index.html#/
+Back con swagger: https://donraul-api.herokuapp.com/swagger-ui/index.html#/
 
 ## Videos youtube
 
