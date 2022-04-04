@@ -2,9 +2,10 @@ import { actionTypes } from "../constants/actionTypes";
 import { generatePDF } from "../document/pdfInvoice";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
 import { auth } from '../firebase/fireConfig'
-import { Navigate } from "react-router-dom";
 
-const url = "http://localhost:8080/hardware"
+
+// const url = "http://localhost:8080/hardware" //conexion local
+const url ='https://donraul-api.herokuapp.com/hardware' //conexion con back en heroku
 
 export const getInventory = () => async(dispatch) => {
 
@@ -100,7 +101,7 @@ export const generateInvoice = (data) => async(dispatch) => {
     })
         .then(res => res.json())
         .then(res => {
-            generatePDF(res)
+            generatePDF(res) // GENERAR PDF
             dispatch({ type: actionTypes.GENERATE_INVOICE})
         })
         // .then(res =>console.log(res))
