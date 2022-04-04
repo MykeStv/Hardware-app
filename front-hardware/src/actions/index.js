@@ -1,5 +1,7 @@
 import { actionTypes } from "../constants/actionTypes";
 import { generatePDF } from "../document/pdfInvoice";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../firebase/fireConfig'
 
 const url = "http://localhost:8080/hardware"
 
@@ -195,5 +197,39 @@ export const deleteInvoice = (id) => async(dispatch) => {
         // console.log(res)
         dispatch({ type: actionTypes.GET_INVOICES, payload: res })
     })
+
+}
+
+
+// AUTHENTICATION
+export const signup = (email, password) => async(dispatch) => {
+
+    // console.log(email, password)
+    const userData = createUserWithEmailAndPassword(auth, email, password)
+        .then(res => {
+            // console.log(res)
+
+            dispatch({ type:actionTypes.SET_AUTHSTATE, payload:res.user })
+
+        }).catch(e => {
+            console.log(e)
+        })
+
+
+}
+
+export const login = (email, password) => async(dispatch) => {
+
+    // console.log(email, password)
+    return signInWithEmailAndPassword(auth, email, password)
+        .then(res => {
+            console.log(res)
+
+            dispatch({ type:actionTypes.SET_AUTHSTATE, payload:res.user })
+
+        }).catch(e => {
+            console.log(e)
+        })
+
 
 }

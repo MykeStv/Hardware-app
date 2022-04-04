@@ -14,7 +14,7 @@ public class Employee {
     private String name;
     //private String username;
     private String email;
-    private String document;
+    //private String document;
     private String rol;
 
     //GETTER && SETTER
@@ -34,13 +34,13 @@ public class Employee {
         this.name = name;
     }
 
-    public String getDocument() {
+  /*  public String getDocument() {
         return document;
     }
 
     public void setDocument(String document) {
         this.document = document;
-    }
+    }*/
 
     public String getRol() {
         return rol;

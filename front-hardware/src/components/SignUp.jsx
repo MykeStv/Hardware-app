@@ -1,12 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { bindActionCreators } from 'redux'
+import { actionCreators } from '../App'
+
 
 const SignUp = () => {
+
+    const initialUser = {
+        email: '',
+        password: ''
+    }
+
+    const [user, setUser] = useState(initialUser)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const { signup } = bindActionCreators(actionCreators, dispatch)
+
+    const handleChange = (e) => {
+        setUser({
+            ...user,
+            [e.target.name]: e.target.value
+        })
+    }
 
     const handleRegisterSubmit = (e) => {
         e.preventDefault();
 
+        signup(user.email, user.password)
 
+        setUser(initialUser)
+    }
 
+    const handleNavigate = () => {
+        navigate('/login')
     }
 
     return (
@@ -21,7 +49,7 @@ const SignUp = () => {
                 <div className="body">
                     <label>
                         <p>Nombre</p>
-                        <input type="text" placeholder='nombre del empleado' required />
+                        <input type="text" placeholder='nombre del empleado' />
                     </label>
                     {/* <label>
                         <p>Rol</p>
@@ -29,11 +57,11 @@ const SignUp = () => {
                     </label> */}
                     <label>
                         <p>Correo</p>
-                        <input type="email" placeholder='correo' required />
+                        <input type="email" placeholder='correo' onChange={handleChange} name='email' required />
                     </label>
                     <label>
                         <p>Contraseña</p>
-                        <input type="password" placeholder='contraseña' minLength='6' required />
+                        <input type="password" placeholder='contraseña' onChange={handleChange} name='password' minLength='6' required />
                     </label>
                 </div>
 
@@ -42,7 +70,7 @@ const SignUp = () => {
                 </div>
 
             </form>
-            <span className='text'>¿Tienes una cuenta? Iniciar sesion</span>
+            <p className='text'>¿Tienes una cuenta? <span onClick={handleNavigate}>Iniciar sesion</span></p>
 
         </div>
     )

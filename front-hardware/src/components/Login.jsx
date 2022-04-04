@@ -1,10 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { bindActionCreators } from 'redux'
+import { actionCreators } from '../App'
+
 
 const Login = () => {
+
+    const initialUser = {
+        email: '',
+        password: ''
+    }
+    const [user, setUser] = useState(initialUser)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const { login } = bindActionCreators(actionCreators, dispatch)
+
+
+
+    const handleChange = (e) => {
+        setUser({
+            ...user,
+            [e.target.name]: e.target.value
+        })
+    }
 
     const handleLoginSubmit = (e) => {
         e.preventDefault()
 
+        login(user.email, user.password)
+
+    }
+
+    const handleNavigate = () => {
+        navigate('/signup')
     }
 
     return (
@@ -13,26 +43,26 @@ const Login = () => {
             <form className='card' onSubmit={handleLoginSubmit}>
 
                 <div className='header'>
-                    <h1>Registrar Usuario</h1>
+                    <h1>Iniciar Sesión</h1>
                 </div>
 
                 <div className="body">
                     <label>
                         <p>Correo</p>
-                        <input type="email" placeholder='correo' required />
+                        <input type="email" placeholder='correo' onChange={handleChange} name='email' required />
                     </label>
                     <label>
                         <p>Contraseña</p>
-                        <input type="password" placeholder='contraseña' minLength='6' required />
+                        <input type="password" placeholder='contraseña' onChange={handleChange} name='password' minLength='6' required />
                     </label>
                 </div>
 
                 <div className='login_footer'>
-                    <button className='signup_btn' type='submit'>Ingresar</button>
+                    <button className='login_btn' type='submit'>Ingresar</button>
                 </div>
 
             </form>
-            <span className='text'>¿No tienes una cuenta? registrar</span>
+            <p className='text'>¿No tienes una cuenta? <span className='to_register' onClick={handleNavigate}>Registrar</span></p>
 
         </div>
     )

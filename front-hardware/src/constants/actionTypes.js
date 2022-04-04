@@ -23,4 +23,8 @@ export const actionTypes = {
     // INVOICE
     GET_INVOICES: 'get-invoices',
     DELETE_INVOICE: 'delete-invoice',
+
+    // AUTHENTICATION
+    SIGNUP: 'signup',
+    SET_AUTHSTATE: 'set-auth-state'
 }
