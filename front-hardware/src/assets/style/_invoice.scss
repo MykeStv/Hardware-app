@@ -8,6 +8,20 @@
 
         table {
             width: 90%;
+
+            .Invoice_actions {
+                display: flex;
+                column-gap: .25rem;
+                justify-content: center;
+                
+                .btn_delete {
+                    @include btn_fuxia_impl;
+                    
+                }
+
+
+            }
+
         }
     }
 }

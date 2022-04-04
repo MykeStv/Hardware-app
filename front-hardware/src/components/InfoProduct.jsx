@@ -22,7 +22,10 @@ const InfoProduct = () => {
         setIsEditing(false)
     }, [product])
 
-    const colorFuxia = Style.colorGreen2;
+    const colorFuxia = Style.colorFuxia;
+    const colorGreen = Style.colorGreen2;
+    let colorProgress;
+    const indicadorProd = 30; //indicador de porcentaje
 
     function isEmpty(obj) {
         return Object.keys(obj).length === 0;
@@ -30,10 +33,13 @@ const InfoProduct = () => {
 
     const porcentage = isEmpty(product) ? 0 : Math.round((product.stock / product.maxStock) * 100);
 
+    //indicador de inventario
+    (porcentage < indicadorProd) ? colorProgress = colorFuxia : colorProgress = colorGreen;
+
     const circle2 = {
-        stroke: colorFuxia,
+        stroke: colorProgress,
         strokeDashoffset: `calc(352 - (352 * ${porcentage}) / 100)`,
-        filter: `drop-shadow(0 0 5px ${colorFuxia})`,
+        filter: `drop-shadow(0 0 5px ${colorProgress})`,
 
     }
 

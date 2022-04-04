@@ -17,8 +17,9 @@
     }
 
     .author {
-        span {
+        a {
             color: $color-green;
+            text-decoration: none;
         }
     }
 

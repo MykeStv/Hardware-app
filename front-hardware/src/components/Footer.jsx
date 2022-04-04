@@ -7,7 +7,7 @@ const Footer = () => {
                 Copyright © 2022 <span>Don Raul</span>
             </div>
             <div className='author'>
-                Made by <span>Maycol Rincon</span>
+                Made by <a href="https://github.com/MykeStv">Maycol Rincon</a>
             </div>
         </div>
     )

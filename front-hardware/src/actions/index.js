@@ -2,6 +2,7 @@ import { actionTypes } from "../constants/actionTypes";
 import { generatePDF } from "../document/pdfInvoice";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
 import { auth } from '../firebase/fireConfig'
+import { async } from "@firebase/util";
 
 
 // const url = "http://localhost:8080/hardware" //conexion local
@@ -200,6 +201,19 @@ export const deleteInvoice = (id) => async(dispatch) => {
         dispatch({ type: actionTypes.GET_INVOICES, payload: res })
     })
 
+}
+
+export const getInvoiceId = (id) => async(dispatch) => {
+    
+    return fetch(`${url}/invoice/${id}`, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'}
+    })
+    .then(res => res.json())
+    .then(res => {
+        // console.log(res)
+        generatePDF(res)
+    })
 }
 
 

@@ -4,6 +4,10 @@ import { bindActionCreators } from 'redux'
 import { actionCreators } from '../App'
 import TableComp from '../components/TableComp'
 import { COLUMNS_INVOICES } from '../constants/columns'
+import { BiTrashAlt } from "react-icons/bi";
+import { AiOutlinePrinter } from "react-icons/ai";
+import { generatePDF } from '../document/pdfInvoice'
+
 
 const Invoice = () => {
 
@@ -11,7 +15,7 @@ const Invoice = () => {
     // console.log(invoices);
 
     const dispatch = useDispatch()
-    const { getInvoices, deleteInvoice } = bindActionCreators(actionCreators, dispatch)
+    const { getInvoices, deleteInvoice, getInvoiceId } = bindActionCreators(actionCreators, dispatch)
 
     useEffect(() => {
         getInvoices()
@@ -25,6 +29,10 @@ const Invoice = () => {
         deleteInvoice(value.id)
     }
 
+    const handlePrint = (value) => {
+        getInvoiceId(value.id)
+    }
+
     //add a column with a button
     const tableHooks = (hooks) => {
         hooks.visibleColumns.push((columns) => [
@@ -33,9 +41,14 @@ const Invoice = () => {
                 id: 'addCart',
                 Header: 'Acción',
                 Cell: ({ row }) => (
-                    <button onClick={() => handleDelete(row.values)}>
-                        Eliminar
-                    </button>
+                    <div className='Invoice_actions'>
+                        <button className='btn_print' onClick={() => handlePrint(row.values)}>
+                            <AiOutlinePrinter />
+                        </button>
+                        <button className='btn_delete' onClick={() => handleDelete(row.values)}>
+                            <BiTrashAlt />
+                        </button>
+                    </div>
                 )
             }
         ])

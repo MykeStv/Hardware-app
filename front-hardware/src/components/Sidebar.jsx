@@ -16,7 +16,7 @@ const Sidebar = () => {
         <>
             <div className='sidebar'>
                 <div className="header">
-                    <img src="" alt="" />
+                    <h1 className='title_logo'>DR</h1>
                     <h3>Don Raul</h3>
                 </div>
                 <div className='elements'>
