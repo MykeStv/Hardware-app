@@ -9,6 +9,7 @@ const rootReducers = combineReducers({
     sell: sellReducer,
     infoProduct: infoProductReducer,
     invoice: getInvoicesReducer,
+    
 })
 
 export const store = createStore(

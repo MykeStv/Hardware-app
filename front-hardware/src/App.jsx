@@ -10,6 +10,7 @@ import Invoice from './containers/Invoice'
 import Client from './containers/Client'
 import Profile from './containers/Profile'
 import SignUp from "./components/SignUp";
+import Login from "./components/Login";
 
 
 export * as actionCreators from './actions/index'
@@ -24,6 +25,7 @@ function App() {
             <Route path="/*" element={<Sidebar />}>
             </Route>
 
+            <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<SignUp />} />
 
           </Routes>

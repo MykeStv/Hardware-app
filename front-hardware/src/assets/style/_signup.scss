@@ -1,5 +1,5 @@
 
-.signup_page {
+.signup_page, .login_page {
     
     @include flex-center;
     flex-direction: column;
@@ -7,7 +7,7 @@
     height: 100vh;
     width: 100%;
     
-    .signup_card {
+    .card {
         @include flex-center;
         flex-direction: column;
         row-gap: 1.5rem;
@@ -16,12 +16,12 @@
         border-radius: .5rem;
         width: 60%;
 
-        .signup_header {
+        .header {
             color: $color-text-light;
             margin-bottom: 1rem;
         }
 
-        .signup_body {
+        .body {
             @include flex-column;
             color: $color-gray;
             width: 100%;
@@ -48,7 +48,7 @@
         
     }
 
-    .signup_text {
+    .text {
         color: $color-gray2;
         margin-top: .25rem;
     }

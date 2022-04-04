@@ -1,24 +1,32 @@
 import React from 'react'
 
 const SignUp = () => {
+
+    const handleRegisterSubmit = (e) => {
+        e.preventDefault();
+
+
+
+    }
+
     return (
         <div className='signup_page'>
 
-            <form className='signup_card'>
+            <form className='card' onSubmit={handleRegisterSubmit}>
 
-                <div className='signup_header'>
+                <div className='header'>
                     <h1>Registrar Usuario</h1>
                 </div>
 
-                <div className="signup_body">
+                <div className="body">
                     <label>
                         <p>Nombre</p>
                         <input type="text" placeholder='nombre del empleado' required />
                     </label>
-                    <label>
+                    {/* <label>
                         <p>Rol</p>
                         <input type="text" placeholder='rol del empleado' required />
-                    </label>
+                    </label> */}
                     <label>
                         <p>Correo</p>
                         <input type="email" placeholder='correo' required />
@@ -30,11 +38,11 @@ const SignUp = () => {
                 </div>
 
                 <div className='signup_footer'>
-                    <button className='signup_btn'>Registrar</button>
+                    <button className='signup_btn' type='submit'>Registrar</button>
                 </div>
 
             </form>
-            <span className='signup_text'>¿Tienes una cuenta? Iniciar sesion</span>
+            <span className='text'>¿Tienes una cuenta? Iniciar sesion</span>
 
         </div>
     )
