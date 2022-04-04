@@ -11,6 +11,7 @@ const SellState = () => {
     const emptyClient = { name: '', document: '' }
 
     const products = useSelector((state) => state.sell.products)
+    const authState = useSelector((state) => state.authentication.authState)
     const [client, setClient] = useState(emptyClient)
     const dispatch = useDispatch()
     // console.log(products);
@@ -24,7 +25,7 @@ const SellState = () => {
 
     const handleInvoice = () => {
         const data = {
-            employee: 'myke',
+            employee: authState.displayName ? authState.displayName : authState.email,
             client: client,
             products: products
         }
