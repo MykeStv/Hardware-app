@@ -224,7 +224,8 @@ export const signup = (email, password) => async(dispatch) => {
     const userData = createUserWithEmailAndPassword(auth, email, password)
         .then(res => {
             // console.log(res)
-
+            const resJson = JSON.stringify(res.user)
+            sessionStorage.setItem('auth', resJson)
             dispatch({ type:actionTypes.SET_AUTHSTATE, payload:res.user })
 
         }).catch(e => {
@@ -240,7 +241,9 @@ export const login = (email, password) => async(dispatch) => {
     return signInWithEmailAndPassword(auth, email, password)
         .then(res => {
             // console.log(res)
-
+            /* const resJson = JSON.stringify(res.user)
+            sessionStorage.setItem('auth', resJson) */
+            // console.log(sessionStorage.getItem('auth'))
             dispatch({ type:actionTypes.SET_AUTHSTATE, payload:res.user })
 
         }).catch(e => {
@@ -256,7 +259,8 @@ export const signOutAction = () => async(dispatch) => {
     return signOut(auth)
         .then(res => {
             // console.log(res)
-
+            /* const resJson = JSON.stringify(null)
+            sessionStorage.setItem('auth', resJson) */
             dispatch({ type:actionTypes.SET_AUTHSTATE, payload:res })
 
         })

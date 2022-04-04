@@ -6,7 +6,9 @@ import Sidebar from './Sidebar'
 const ProtectedRoute = () => {
 
     const authState = useSelector((state) => state.authentication.authState)
-    console.log(authState);
+
+    // const authState = JSON.parse(sessionStorage.auth)
+    // console.log(authState);
     /* 
         const isAuth = () => {
             if (authState === null || authState === undefined) {
