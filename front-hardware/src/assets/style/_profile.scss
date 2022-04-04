@@ -1,0 +1,30 @@
+
+.profile_page {
+    @include page-config;
+    @include flex-center;
+
+    .profile_container {
+        background: $color-backgroud-table;
+        width: 25rem;
+        padding: 1.5rem;
+        @include flex-column;
+        align-items: center;
+        border-radius: .5rem;
+        row-gap: 1rem;
+
+        .profile_header {
+            color: $color-text-light;
+        }
+
+        .profile_body {
+            color: $color-gray;
+        }
+        .profile_footer {
+            @include btn-fuxia;
+        }
+
+
+    }
+
+
+}

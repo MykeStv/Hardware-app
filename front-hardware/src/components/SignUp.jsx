@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import { actionCreators } from '../App'
@@ -17,6 +17,13 @@ const SignUp = () => {
     const navigate = useNavigate()
 
     const { signup } = bindActionCreators(actionCreators, dispatch)
+    const authState = useSelector((state) => state.authentication.authState)
+
+    useEffect(() => {
+        if (authState) {
+            navigate('/')
+        }
+    }, [authState])
 
     const handleChange = (e) => {
         setUser({

@@ -1,7 +1,8 @@
 import { actionTypes } from "../constants/actionTypes";
 import { generatePDF } from "../document/pdfInvoice";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
 import { auth } from '../firebase/fireConfig'
+import { Navigate } from "react-router-dom";
 
 const url = "http://localhost:8080/hardware"
 
@@ -223,7 +224,7 @@ export const login = (email, password) => async(dispatch) => {
     // console.log(email, password)
     return signInWithEmailAndPassword(auth, email, password)
         .then(res => {
-            console.log(res)
+            // console.log(res)
 
             dispatch({ type:actionTypes.SET_AUTHSTATE, payload:res.user })
 
@@ -233,3 +234,21 @@ export const login = (email, password) => async(dispatch) => {
 
 
 }
+
+export const signOutAction = () => async(dispatch) => {
+
+    // console.log(email, password)
+    return signOut(auth)
+        .then(res => {
+            // console.log(res)
+
+            dispatch({ type:actionTypes.SET_AUTHSTATE, payload:res })
+
+        })
+        .catch(e => {
+            console.log(e)
+        })
+
+
+}
+
